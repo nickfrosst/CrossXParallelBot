@@ -18,7 +18,7 @@ AGENT_NAME = "CrossXParallel"
 TEMP_NAME = "temp.jpg"
 
 TARGET_SUB = "parallelview"
-TARGET_SUB = "reddit_api_test"
+#TARGET_SUB = "reddit_api_test"
 SOURCE_SUB = "crossview"
 
 SEARCH_LIMIT = 20
@@ -101,13 +101,14 @@ for submission in subreddit.hot(limit = SEARCH_LIMIT):
                         m = re.search("\d+",e.message)
                         pretty_sleep(60 * int(m.group(0)))
                     else:
+                        print(e)
                         raise NameError('GiveUp')
                         
                     
             
             reddit_post.reply('''Hello, I am a bot :) \n\n I cross post from r/crossview \n\n ''' + ImgurConfig['description'])        
             print ("adding comment")
-            posted[submission.url] = reddit_post.short_link
+            posted[submission.url] = reddit_post.shortlink
             print("submited " + posted[submission.url])
             submitted += 1 
             
