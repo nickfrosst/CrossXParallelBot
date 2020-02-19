@@ -13,6 +13,7 @@ import json
 import time
 import string
 
+
 POSTED_HASH = "/home/nickfrosst/crossXparallel/CrossXParallelBot/postedHash.txt"
 
 AGENT_NAME = "CrossXParallel"
@@ -34,7 +35,7 @@ ImgurConfig = {
         'description': None
     }
 
-black_listed_authors = ['chrisleblac79']
+black_listed_authors = ['chrisleblanc79']
     
 def flip(image):
     tiles = image_slicer.slice(image, 2, save=False)
@@ -79,6 +80,7 @@ for submission in subreddit.hot(limit = SEARCH_LIMIT):
         
     for downloader,patern in downloaders:
         s = str(submission.title.encode("utf-8"))
+
         if submission.author.name not in black_listed_authors and \
            not posted.has_key(submission.url) and \
            s.lower().find("r/parallelview") == -1 and \
@@ -114,7 +116,7 @@ for submission in subreddit.hot(limit = SEARCH_LIMIT):
                         
                     
             
-            reddit_post.reply('''Hello, I am a bot :) \nI was writtten by nick_ok\n I cross post from r/crossview \n\n ''' + ImgurConfig['description'])        
+            reddit_post.reply('''Hello, I am a bot :) \nI was writtten by nick_ok\n I cross post from r/crossview \n\n ''' + ImgurConfig['description'])
             print ("adding comment")
             posted[submission.url] = reddit_post.shortlink
             print("submited " + posted[submission.url])
