@@ -100,10 +100,10 @@ for submission in subreddit.hot(limit = SEARCH_LIMIT):
             
             while True:
                 try:
-                    print(str(response['link'][:-4]))     
+                    print(str(response['link']))     
                     print ("posting")
                     title =  s + " [by u/" + str(submission.author.name) + " converted]"
-                    reddit_post = reddit.subreddit(TARGET_SUB).submit( title, url=str(response['link'][:-4]))
+                    reddit_post = reddit.subreddit(TARGET_SUB).submit( title, url=str(response['link']))
                     break
                 except praw.exceptions.APIException as e:
                     if e.field == 'ratelimit':
